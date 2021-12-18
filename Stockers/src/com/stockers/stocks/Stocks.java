@@ -28,7 +28,7 @@ public class Stocks {
 		this.stockPrice = stockPrice;
 	}
 
-	public boolean isDidPriceRoseToday() {
+	public boolean DidPriceRiseToday() {
 		return didPriceRoseToday;
 	}
 

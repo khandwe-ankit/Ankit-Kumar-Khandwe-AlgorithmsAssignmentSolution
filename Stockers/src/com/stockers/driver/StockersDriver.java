@@ -2,7 +2,9 @@ package com.stockers.driver;
 
 import java.util.Scanner;
 
-import com.stockers.sorting.SortingSolution;
+import com.stockers.services.SortingSolution;
+import com.stockers.services.StockComparision;
+import com.stockers.services.StockSearch;
 import com.stockers.stocks.Stocks;
 
 public class StockersDriver {
@@ -47,14 +49,24 @@ public class StockersDriver {
 			}
 			case 3: {
 				// Display the total no of companies for which stock prices rose today
+				int count = StockComparision.noOfStocksRoseToday(stocks);
+				System.out.println("Total no of companies whose stock price rose today : " + count);
 				break;
 			}
 			case 4: {
 				// Display the total no of companies for which stock prices declined today
+				int count = StockComparision.noOfStocksFellToday(stocks);
+				System.out.println("Total no of companies whose stock price declined today : " + count);
 				break;
 			}
 			case 5: {
 				// Search a specific stock price
+				System.out.println("Enter the key value");
+				double keyvalue = sc.nextDouble();
+				if (StockSearch.doesStockExist(stocks, keyvalue))
+					System.out.println("Stock of value " + keyvalue + " is present");
+				else
+					System.out.println("Value not found");
 				break;
 			}
 			case 0: {
@@ -65,7 +77,7 @@ public class StockersDriver {
 
 			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + option);
+				System.out.println("Unexpected value: " + option + ", please enter between 0-5");
 			}
 		} while (option != 0);
 		sc.close();

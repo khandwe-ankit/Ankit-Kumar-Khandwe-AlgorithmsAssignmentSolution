@@ -1,4 +1,4 @@
-package com.stockers.sorting;
+package com.stockers.services;
 
 import com.stockers.stocks.Stocks;
 
